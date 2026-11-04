@@ -741,7 +741,7 @@ const Editor: React.FC = () => {
                 {totalPoints} pts total
               </span>
               <div className="flex items-center gap-1">
-                <span className="text-xs text-academic-500">Target:</span>
+                <span className="text-xs text-white/85">Target:</span>
                 <span className="w-16 inline-block">
                   <PointsInput
                     value={targetPoints}
@@ -751,7 +751,7 @@ const Editor: React.FC = () => {
                     className="text-xs !py-0.5 !px-1 text-center"
                   />
                 </span>
-                <span className="text-xs text-academic-500">pts</span>
+                <span className="text-xs text-white/85">pts</span>
               </div>
               {!pointsAtTarget && (
                 <Button variant="secondary" onClick={handleRescale} className="text-xs">
@@ -791,7 +791,10 @@ const Editor: React.FC = () => {
               Finalize
             </Button>
           )}
-          <HelpLink section="finalize" onOpen={openHelp} label="Help: finalizing an assignment" />
+          {/* On the blue header band the help circle is drawn in white. */}
+          <span className="[&_button]:text-white [&_button]:border-white/70">
+            <HelpLink section="finalize" onOpen={openHelp} label="Help: finalizing an assignment" />
+          </span>
           <Button variant="secondary" onClick={() => withRescaleChoice(assignment, async rescale => {
             // Async since 2026-09-21: with figure blocks this route writes a zip
             // holding the .md and its figures/ folder, because a .md handed over
